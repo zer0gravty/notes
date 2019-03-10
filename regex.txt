@@ -1,0 +1,33 @@
+import re
+
+re.compile('patternToSearchFor')
+    returns a pattern to search for in a variable as a string
+    i.e.:
+    pattern1 = re.compile("[0-9]\w[?]")
+
+re.search('regExpressionPattern', stringToSearch)
+    returns the first instance searching for if found as a string;
+    can take pattern literal or variable for both parameters
+    if not found, returns None
+    i.e.:
+    found_it = re.search(pattern1, "Some dumb string")
+    found_it = re.search("[0-9]\w", "Some dumb string")
+    found_it = re.search(pattern1, stringvariable)
+
+stringVar.group() --> returns the pattern found as a string
+    i.e. found_it.group()
+stringVar.start() --> returns the starting index of the pattern found in the string that was searched
+    i.e. found_it.start()
+stringVar.end() --> returns the ending index+1 of the pattern found in the string that was searched
+    i.e. found_it.end()
+stringVar.span() --> returns a tuple with the (start, end) indeci of the pattern found in the string searched
+    i.e. found_it.span()
+
+found_them = re.findall(pattern1, stringToSearch)
+    returns a LIST of all the items in the string that match the pattern argument
+
+splitList = pattern.split(stringToSearch)
+    returns a list with the string split by the pattern specified, if found
+
+subString = pattern.sub("string to sub", stringToSearch)
+    returns a string with the parts of the string substituded with the pattern searched for

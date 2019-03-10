@@ -1,0 +1,188 @@
+
+	1. Each command ends with a semi-colon
+	2. There are 3 types of values
+	    a. String literals, which are characters surrounded almost always with single quotes
+	    b. Numeric literals, which are numbers of any type without quotes
+	    c. Binary literals are numbers represented as hexidecimal
+	3. There are 5 types in SQLite
+	    a. integer
+	    b. real
+	    c. text
+	    d. blob
+	    e. null
+	4. To use single quotes in a string add 2 in a row rather then one ''
+	5. Single line comments start with 2 lines --
+	6. Multiline comments start with /* and end with */
+	7. SQL is case insensitive
+	8. Each table can have only one primary key
+	select * // The action / verb
+	from general_power // The subject of your query
+	where power_type='Invulnerability'; // The predicate which describes the subject
+
+	CREATE TABLE origin_issue (id INTEGER PRIMARY KEY,
+	comic_name TEXT NOT NULL COLLATE NOCASE,
+	issue_number INTEGER NOT NULL DEFAULT '0',
+	comic_issn INTEGER UNIQUE CHECK(comic_issn>0),
+	character_id integer,
+	FOREIGN KEY(character_id) REFERENCES identity(id));
+
+	// primary key means this will auto increment by 1 and remain unique
+	// NOT NULL means it can't contain a null value
+	// COLLATE NOCASE converts upper case characters to lowercase characters when comparing
+	// COLLATE BINARY if 2 strings are compared, they are compared using the exact characters
+	// COLLATE RTRIM compares just like BINARY except trailing white space is ignored
+	// DEFAULT defines a default value to use
+	// UNIQUE makes sure that the same number isn't used in this column
+	// CHECK sets a rule that all data in the column must obey
+	// A FOREIGN KEY in one table references a PRIMARY KEY in another table
+	// To add a column
+	// It Can't be UNIQUE, PRIMARY KEY
+	// It can't have a default value CURRENT_TIME, CURRENT_DATE, CURRENT_TIMESTAMP, // or an expression in parentheses
+	// If NOT NULL it can't have a NULL value
+
+	ALTER TABLE origin_issue
+	ADD COLUMN writer TEXT;
+	// You can rename a table
+	ALTER TABLE origin_issue RENAME TO first_issue;
+	// You can't delete columns in any way
+
+
+    CREATE TABLE creates a new table.
+        create table <tablename>;
+        create table <tablename> (column_name TYPE, column_name TYPE, ...);
+    INSERT INTO adds a new row to a table.
+        insert into <tablename> (column_name, column_name, ...) values (column_name_corresponding_value, ...);
+    SELECT queries data from a table.
+        select <column_name, column_name, ...> from <tablename>;
+        select <column_name> AS "alias" from <tablename>  :: AS will return the selected field with an alias (quotes are required) w/o altering column name
+        select DISTINCT <column_name> from <tablename>  :: DISTINCT will return unique values in a particular column only, no duplicates
+        select <column_name> from <tablename> WHERE <column_name> LIKE "abc_fgh"   :: LIKE will match a search with a wildcard
+        ... WHERE <column_name> LIKE "%abcd%"   :: % is the wildcard alternate
+        ... WHERE <date> BETWEEN date AND date; (inclusive)
+        ... WHERE <name> BETWEEN "a" AND "e"; (case-sensitive, non-inclusive of second letter)
+        ... ... condition1 AND/OR condition2; (AND/OR work like every other language)
+        ... WHERE country IN/NOT IN (value1, value2, ...)  :: include/exclude multiple values from a column query
+        ... ... WHERE ... ORDER BY <column_name> <DESC/ASC>   :: ORDER BY will need to come after everything else to sort by the apropos field
+        ...... ORDER BY COLLATE NOCASE : removes case sensitivity when ordering strings
+        ....... LIMIT <number>   :: LIMIT will need to be last, not supported by all SQL databases, and limits the number of returns based on the number
+        ...GROUP BY is a clause in SQL that is used with aggregate functions. It is used in collaboration with the SELECT statement to arrange
+        identical data into groups. The GROUP BY statement comes after any WHERE statements, but before ORDER BY or LIMIT.
+        ... GROUP BY
+        SELECT <column_name>,
+        CASE
+            WHEN <column_name> <conditions> THEN <'alias'> NOTE NOTE NOTE: SQLite does not care if using
+            WHEN <column_name> <conditions> THEN <"alias"> single or double quotes; OTHER SQL TYPES DO
+            ELSE <"alias">                                  AND YOU'LL NEED TO USE SINGLE QUOTES
+            END (AS "alias")
+        FROM <tablename>;   :: equivalent to a switch-case scenerio in programming languages
+
+    UPDATE edits a row in a table.
+        update <tablename> set column_name = value (or new_value) WHERE <conditional>;
+    ALTER TABLE changes an existing table.
+        alter table <tablename> ADD COLUMN column_name TYPE;
+    DELETE FROM deletes rows from a table.
+        delete from <tablename> WHERE <conditional>
+    DROP TABLE deletes a table!
+
+    WHERE conditionals:
+    Comparison operators used with the WHERE clause are:
+    = equal to
+    != not equal to
+    > greater than
+    < less than
+    >= greater than or equal to
+    <= less than or equal to
+    IS NULL
+    IS NOT NULL
+
+    BETWEEN two letters is not inclusive of the 2nd letter (case-sensitive in both situations).
+    BETWEEN two numbers is inclusive of the 2nd number.
+
+    When we want to limit the results of a query based on values of the individual rows, use WHERE.
+    When we want to limit the results of a query based on an aggregate property, use HAVING.
+    HAVING statement always comes after GROUP BY, but before ORDER BY and LIMIT.
+
+    Query summary:
+
+    SELECT is the clause we use every time we want to query information from a database.
+    AS renames a column or table.
+    DISTINCT return unique values.
+    WHERE is a popular command that lets you filter the results of the query based on conditions that you specify.
+    LIKE and BETWEEN are special operators.
+    AND and OR combines multiple conditions.
+    ORDER BY sorts the result.
+    LIMIT specifies the maximum number of rows that the query will return.
+    CASE creates different outputs.
+
+    CREATE VIEW <view_name> AS   : creates a "fake" table based on a the following defined commands that can be referenced to/with queries
+    like the regular database
+    DROP VIEW <view_name>   : deletes a view
+
+    select COUNT(column_name)   : returns total number of rows (useful with conditionals)
+    select SUM(column_name)   : totals up the values in the argument
+    select MIN(column_name)   : returns lowest value
+    select MAX(column_name)   : returns highest value
+    select AVG(column_name)   : returns the average of the column's values
+    select ROUND(column_name, integerPlace) :  returns the column rounded to the specifed integer value
+    select FLOOR(column_name)
+    select SQRT(column>name)
+    select
+
+
+
+
+    example:
+create table friends (id INTEGER, name TEXT, birthday DATE);
+insert into friends (name, birthday) values ("Jane Doe", 05301990);
+select * from friends;
+insert into friends (name, birthday) values ("Bruce Wayne", 04061954);
+insert into friends (name, birthday) values ("Mr. Friendless", 01013004);
+update friends set name = "Jane Smith" where name = "Jane Doe";
+alter table friends add column emails TEXT;
+update friends set emails = "jane@codecademy.com" where name = "Jane Smith";
+update friends set emails = "darkknight@bat.net" where name = "Bruce Wayne";
+update friends set emails = "nobody@facebook.com" where name = "Mr. Friendless";
+select * from friends;
+delete from friends where name = "Jane Smith";
+select * from friends;
+
+
+JOIN vs INLINE JOIN vs LEFT JOIN ... ON ...
+Let's summarize what we've learned so far:
+
+    JOIN will combine rows from different tables if the join condition is true.
+
+    LEFT JOIN will return every row in the left table, and if the join condition is not met, NULL values are used to fill in the columns from the right table.
+
+    Primary key is a column that serves a unique identifier for the rows in the table.
+
+    Foreign key is a column that contains the primary key to another table.
+
+    CROSS JOIN lets us combine all rows of one table with all rows of another table
+
+    UNION stacks one dataset on top of another.
+
+    WITH allows us to define a bunch of temporary tables that can be used in the final query.
+
+list of common commands:
+https://www.codecademy.com/articles/sql-commands?r=master
+
+sqlite: TYPEOF() postgresql: PG_TYPEOF()
+
+Examples:
+
+SELECT *,
+       CASE WHEN Password IS NOT NULL
+       THEN 'Yes'
+       ELSE 'No'
+       END AS PasswordPresent
+FROM myTable
+
+SELECT fighters.name, SUM(won) AS won, SUM(lost) AS lost FROM fighters
+INNER JOIN winning_moves ON fighters.move_id = winning_moves.id
+WHERE winning_moves.move NOT IN ("Kikoken", "Hadoken", "Shouoken")
+GROUP BY fighters.name ORDER BY won DESC LIMIT 6;
+
+WITH Median AS (SELECT score FROM result ORDER BY score OFFSET 49 LIMIT 2)
+SELECT MIN(result.score) AS min, AVG(Median.score)::FLOAT AS median, MAX(result.score) AS max
+FROM result, Median;

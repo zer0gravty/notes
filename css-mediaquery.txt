@@ -1,0 +1,24 @@
+@media (css: value;){
+    element {
+        css: value;
+    }
+}
+
+Will change the CSS for a viewport that are 350 pixels or less:
+@media (max-height: 350px){
+    p {
+        font-size: 10px;
+    }
+}
+
+Will make images responsive:
+  img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+
+Viewport units for height and width:
+Nvh Nvw Nvmin Nvmax  
+  height: 10vh (10 percent of the viewport height) OR 60vmax (60 percent of the viewport's maximum dimension --> height vs width)
+  width: 30vw (30 percent of the viewport width) OR 70vmin (70 percent of the viewport's minimum dimension --> height vs width)

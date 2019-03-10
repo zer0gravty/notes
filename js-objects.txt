@@ -1,0 +1,44 @@
+Constructor Type 1:
+
+function Classname (parameterVariable){
+    this.x = constantVariable;
+    this.y = parameterVariable;
+}
+
+//use new; otherwise, bad things can happen, to create a new instance of that type
+let someInstanceName = new Classname(parameterVariable)
+
+//instanceof will check if object is instance of a class, meaning it was created using that Constructor
+//if object is identical in nature and manually created, it will return false because it was not created using that Constructor
+
+x instanceof y
+
+Own properties vs. Prototype properties:
+using .hasOwnProperty(property) method on the instance of that class.
+IF true, it is unique to that object; otherwise, it is part of the prototype of that object
+
+Prototypes:
+Classname.prototype.attribute = some value or method;
+Classname.prototype.constructor
+--each prototype has this property and it dictates how to make an instance of that object
+--thus when an instance gets created, it inherits that constructor property
+----> if (someObject.constructor === ClassName) { return true;}
+
+You can redefine the prototype object.
+but this will refine the prototype object.
+You'll need to redefine the constructor value.
+
+Someclass.prototype = {
+    constructor: Someclass,
+    someAttribute: someValue,
+    someMethod: function(someArg){
+        this.someOtherThing = whatever;
+    },
+}
+
+use isPrototypeOf(object) method on a different object to check if it is a prototype of that object
+and inherits it attributes/methods
+..i.e. Dog.prototype.isProtoypeOf(beagle);
+..i.e. Object.prototype.isPrototypeOf(Dog.prototype)
+
+Object.create(someClass.prototype)

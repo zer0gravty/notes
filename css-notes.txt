@@ -1,0 +1,199 @@
+Google Fonts: <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+
+hierarchy of css inheritance
+!important > inline > id > class (last read > first read)
+--adding !important after a properties value will ensure that this is the displayed css
+i.e. color: red !important;
+
+selectors-->
+id: #some-id 
+class: .some-class 
+attribute: [attribute-name='attribute-value']
+--i.e. [type="radio"]
+
+:root {
+    selector that incorporates all other selectors into it; will be parent node
+    set values here that will cascade throughout;
+    you can use with responsive web design like @media query to change appearance w/ viewport sizing
+}
+
+size units-->
+-->absolute:
+---- mm (millimeters) in (inches) px (pixels)
+-->relative:
+---- em (based on size of element's font) rem
+i.e. 1.5em
+
+creating a CSS variable:
+--somevariablename: value
+Then you can reference it with the 'var()' function
+i.e. --ball-color: red
+.some-class { color: var(--ball-color, red);}
+*providing a second argument is a fallback value in case the variable is not referenced correctly; not compatible with IE 
+so if using var(), set a default color, etc. first because IE can't handle CSS variables.
+
+color: predefined word (i.e. red, blue, etc.), #hexvalue #shortened-hex-value (color of the text)
+font-size: 16px (size of the font)
+font-family: Lobster, monospace (font family of the font)
+--good practice if importing to have backup, generic font to degrade in case other font can't/won't load
+--case sensitive, need quotes if multiple words
+--generic fonts include: monospace, sans-serif, serif, etc.
+font-weight: bold == <strong>someTestText</strong>
+--sets how thick or thin characters are; can also use values 1-1000
+--i.e. font-weight: 1000
+text-decoration: underline == <u>someTestText</u> line-through == <s>someTestText</s> none (removes any default decoration)
+font-style: italic == <em>someTestText</em>
+text-transform: lowercase uppercase capitalize initial inherit none(default)
+line-height: px
+--changes the line height in a block of text
+
+background: linear-gradient(deg, col1, col2, etc.): angle at which gradient occurs, color spectrum to gradient over.
+            i.e. linear-gradient(90deg, blue, red) <-- accepts all color args
+            repeating-linear-gradient(deg, col1 start, col2 stop, col3 start, col4 stop, etc.)
+            i.e. repeating-linear-gradient(90deg, yellow 0px, green 50px, blue 50px, red 100px) <-can use percentages as well
+            url("url"): sets the background for an element to a url, useful for pictures etc.
+
+transform: scale(n) <-- will transform an element by scaling it to N
+           --i.e. scale(2) <-- doubles the size of an element
+           skewX(Ndeg) <-- will skew an elements x-axis by N degrees
+           --i.e. skewX(45deg) 
+           skewY(Ndeg) <-- will skew an elements y-axis by N degrees
+           --i.e. skewY(-10deg)
+           rotate(Ndeg) <--rotates an element by specified degrees, +/- value
+           --i.e. rotate(-45deg)
+
+background-color: defines an elements background color; accepts all color arg possibilities
+--i.e. green, transparent
+--i.e. #hex OR #shortenedhex or rgb(0-255,0-255,0-255)
+----> Red is #ff0000 or #f00 or rgb(255, 0, 0) or rgba(z, y, x, 0-1 (default is 1))
+----> the alphalevel in rgba ranges from transparency to opacity
+----> hsl(0-360, 0-100%, 0-100%)
+--hue: uses wheel concept rather than line, for color, so based on degree of wheel for color
+--saturation: amount of gray in a color; fully sat has no gray; min sat is almost completely gray, can create different tones by adding gray, black/white
+--lightness: amount of white or black, 0 (all black) - 100 (all white); 50% obv is in the middle/normal display; adding more white creates a tint; adding more black creates a shade
+....i.e. red == hsl(0, 100%, 50%), green == hsl(120, 100%, 50%), blue == hsl(240, 100%, 50%)
+
+
+width: em/rem in/mm/px %(of parent element/div)
+--specifies the width of an elememt/div; use relative, absolute, or percentage of parent element/div
+i.e. width: 10px OR 1.5em OR 1.5rem OR 5mm OR 2in OR 50%
+height: em/rem in/mm/px %(of parent element/div)
+i.e. height: 20px OR 50%
+
+border-style: solid 
+border-width: spedifies border size, accepts same args as other sizing metrics
+border-color: specifies border's color, accepts same args as color attribute
+border-radius: specifies curvature of border (can round it out)
+--i.e. 10px
+--i.e. 50%
+
+padding: defines the space between an elements content and its border
+--i.e. 10px (if one value, will apply to all top, right, bottom, left)
+--i.e. 10px 20px 10px 20px (shorthand; will define top, right, bottom, left in that order)
+---> Can specify individual part:
+padding-top:
+padding-right:
+padding-bottom:
+padding-left:
+
+margin: defines the space between and element's border and surrounding elements
+--i.e. 10px (if one value, will apply to all top, right, bottom, left) auto
+--i.e. -15px (will basically have no margin if negative)
+--i.e. 10px 20px 10px 20px (shorthand; will define top, right, bottom, left in that order)
+---> Can specify individual part:
+margin-top:
+margin-right:
+margin-bottom:
+margin-left:
+--margin: auto can be used to center an element
+
+text-align: justify center right left (default)
+--describes how to align the text in the element/div
+
+box-shadow: offset-x offset-y (blur-radius) (spread-radius) color
+--blur and spread are optional
+i.e. 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23) <-- can setup multiple box shadows
+
+opacity: 0 (transparent) - 1(opaque)
+i.e. opacity: 0.5
+
+    <--Pseudo-classes/Pseudo-elements-->
+<selector>:hover    Changes a property on a mouse hover
+                      i.e. a:hover { color: pink; transform: scale(2); }
+<element>::before   Pseudo-element that "attaches" to another element before it; must use content: attribute to work; if no text, use ""  
+<element>::after    Pseudo-element that "attaches" to another element after it; must use content: attribute to work; if no text, use ""
+<element>:focus     Pseudo-class
+
+Position
+position: relative absolute fixed
+--relative to normal flow; other elements aren't affected by an element with relative positioning
+--does not remove the element from the normal flow
+--use top right bottom left to offset
+i.e. top: 25px
+--will push something 25px down
+
+--absolute: locks element in place relative to parent container; removes element from the normal flow of the page
+--will be relative to closest positioned ancestor; if ancestor's position is not specified, i.e. relative, then it will look up the chain to <body>
+
+--fixed: locks element absolutely, relative to the browser window
+--won't move when the user scrolls, etc.
+
+float: left right
+--removes element from normal flow; specifies where in parent element it "floats" to
+--often used with width property
+
+z-index: positive integer
+--specifies order of appearance, higher z-indexed elements appear before others
+--this can override the most recent element outweighing a previous element
+
+display: block inline-block none
+--can use on image as images are default to be inline, this changes it to a block
+
+<-- Animation -->
+ Can be used w/ pseudo-classes/elements like :hover, etc., as well
+animation-name: attribute of element that will be reference by @keyframes decorator
+animation-duration: time to run through keyframes in animation
+--i.e. 4s 500ms
+animation-fill-mode: forwards
+                     --will leave the element in the final state, rather than reset to the beginning
+animation-iteration-count: defines how many times to loop through animation frames
+                          i.e. 1 - infinite
+animation-timing-function: ease ease-in ease-out linear cubic-bezier(x1, y1, x2, y2) <-- controls how animation occurs over specified duration (i.e. acceleration)
+                           ease: starts slow, speeds up towards middle, ends slow
+                           ease-in: starts slow, ends floats
+                           ease-out: starts fast, ends slow
+                           linear: constant speed throughout
+                           cubic-bezier(0.25, 0.25, 0.75, 0.75) <-- this equals linear as beginning of curve is always (0,0) and end is always (1,1)
+                           --y-value for points can be greater than 1
+
+@keyframes <name> {
+    0% {
+        some stuff to do at the start
+        i.e. top: 25px;
+             opacity: 1;
+    }
+    50% {
+        some stuff to do in the middle
+        i.e. top: 100px;
+             opacity: 0.5;
+    }
+    100% {
+        some stuff to do at the end
+        i.e. top: 25px;
+             opacity: 1;
+    }
+}
+
+check out the WCAG; Web Content Accessibility Guidelines
+Screen Reader CSS:
+.sr-only {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  top: auto;
+  overflow: hidden;
+}
+Use this on graphics, tables, etc. that you need to give information to users using a SR when the chart/etc. on the page won't suffice
+Normal user doesn't need to see this, so the CSS removes it from the page, but the SR will find it.
+Using display: none OR visibility: hidden won't work as this REMOVES it from the page/view for everything

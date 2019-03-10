@@ -1,0 +1,98 @@
+Forms
+
+Forms use input elements.
+<form action="url to submit to"></form>
+
+You can use this:
+<input> self closing elements
+<input type="" placeholder="">
+--type: text; radio; checkbox; search; submit (can use value="some text") to be the button text; date
+--placeholder: text that will display as helper text
+
+And add buttons within the <form> element opening and closing tags:
+<button type="">Text in the button</button>
+--type: submit
+
+--Keyword
+required (can't submit without this input)
+checked (sets a default selection for that name="" group)
+--put in element if a specific input is required; won't be able to submit otherwise
+i.e. <input type="text" placeholder="Name (required)" required>
+i.e. <input id="red" type="radio" name="color-choice" checked> 
+Use <label for="match id of input"></label> elements with some inputs like radio's. "for" attribute best practice for accessibility, et al.
+"name" attribute links all the choices together
+i.e.
+    <label for="choice-a">
+        <input id="choice-a" type="radio" name="choice_a_b_c">Choice A
+    </label>
+    <label for="choice-b">
+        <input id="choice-b" type="radio" name="choice_a_b_c">Choice B
+    </label>
+etc...
+    Same for type="checkbox"
+<label for="id of checkbox element">
+    <input id="unique identifier" type="checkbox" name="unifying name for form input part"> identifier
+</label>
+
+Can use <fieldset> to group radio inputs w/ <legend> tag for accessibility.
+i.e.:
+<fieldset>
+    <legend>Caption for the radio buttons if not self-explanatory</legend>
+    <label for="choiceA">Choice A</label>
+    <input type="radio" id="choiceA" name="candidates/>
+    <label for="choiceB">Choice B</label>
+    <input type="radio" id="choiceB" name="candidates/>
+    <label for="choiceC">Choice C</label>
+    <input type="radio" id="choiceC" name="candidates/>
+</fieldset>
+
+
+Basic Structure HTML5
+<!DOCTYPE html> <-- HTML5 info to the browser>
+<html>
+    <head>
+        <!-- meta information -->
+        <title></title>
+        <link> //self closing
+        <meta> //self closing
+        <style>CSS styling here if not linked to another file</style>
+    </head>
+    <body>
+        <header>
+            <nav></nav>
+        </header>
+        <section tabindex="-N,0,N"> tabindex adds focus to element that otherwise doesn't have with keyboard use, i.e. tabindex="0"; NOTE: allows access to CSS psuedo-class :focus
+                                    ranking tabindex will interrupt, expected TAB behavior, so be deliberate tabindex="1" will make this first, tabindex="2" makes it second, etc. before defaulting to ^^
+            <figure>Use this to wrap around any type of figures (images, charts, etc.)
+                <figcaption>Use to describe image in figure element; keep within <figure> element.</figcaption>
+            </figure>
+        </section>
+        <aside></aside>
+        <main>
+            <img src="path-of-image" alt="text-to-display-if-img-doesnt-load-screenreaders-on-hover" />
+            <a accesskey="x" href="url">Some link</a> attribute accesskey can be used with any element; creates keyboard shortcut
+            <article>
+                <audio controls> (controls keyword is a boolean)
+                    <source src="path-of-audio-source" type="type-of-audio, i.e. audio/mpeg" />
+                </audio>
+            </article>
+        </main>
+        <footer></footer>
+        <script>Javascript code here if not linked to another file</script>
+    </body>
+</html>
+
+Best practice:
+<div> - groups content
+<section> - groups related content
+<article> - groups independent, self-contained content
+
+<time datetime="yyyy-mm-dd">Day, date, time text; this HTML5 element will help screenreaders</time>
+
+<hr>: adds a horizontal line; self-closing
+<strong></strong>: adds bold to text
+<em></em>: adds italic to text
+<s></s>: adds strike-through to text
+<u></u>: underlines the text
+<sup></sup>: Superscript... i.e. September 22<sup>nd</sup>
+<sub></sub>: Subscript... i.e. C<sub>6</sub>

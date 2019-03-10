@@ -1,0 +1,182 @@
+<DOCTYPE! html>
+<html>
+    <head>
+        <title>Planets!</title>
+        <style>
+            body {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+
+            .ball {
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                position: absolute;
+                animation-iteration-count: infinite;
+            }
+
+            #redball {
+                animation-name: redball;
+                background: linear-gradient(90deg, red, tomato, pink);
+                top: 100px;
+                left: 100px;
+                animation-duration: 10s;
+                animation-delay: 1s;
+            }
+
+            #purpleball {
+                animation-name: purpleball;
+                background: linear-gradient(120deg, magenta, violet, purple);
+                top: 100px;
+                right: 100px;
+                animation-duration: 10s;
+                animation-delay: 3s;
+            }
+
+            #greenball {
+                animation-name: greenball;
+                background: linear-gradient(240deg, green, yellow);
+                bottom: 50%;
+                left: 50%;
+                animation-duration: 10s;
+                animation-delay: 2s;
+            }
+
+            #blueball {
+                animation-name: blueball;
+                background: radial-gradient(blue, cyan);
+                bottom: 100px;
+                right: 100px;
+                animation-duration: 10s;
+                animation-delay: 6s;
+            }
+
+            #orangeball {
+                animation-name: orangeball;
+                background: linear-gradient(145deg, orange, gold);
+                top: 50%;
+                left: 50%;
+                animation-duration: 40s;
+                z-index: -1;
+            }
+
+            @keyframes redball {
+                0% {
+                    top: 100px;
+                    left: 100px;
+                }
+                20% {
+                    top: 25%;
+                    left: 30%;
+                    transform: scale(1.5);
+                }
+                40% {
+                    top: 40%;
+                    left: 50%;
+                }
+                80% {
+                    top: 80%;
+                    left: 75%;
+                    transform: scale(3.5);
+                }
+                100% {
+                    top: 100%;
+                    left: 100%;
+                }
+            }
+            @keyframes purpleball {
+                0% {
+                    top: 100px;
+                    right: 100px;
+                }
+                20% {
+                    top: 15%;
+                    right: 10%;
+                    transform: scale(0.5);
+                }
+                40% {
+                    top: 40%;
+                    right: 40%;
+                    transform: scale(2.5);
+                }
+                80% {
+                    top: 35%;
+                    right: 70%;
+                }
+                100% {
+                    top: 100px;
+                    right: 100%;
+                }
+            }
+            @keyframes greenball {
+                0% {
+                    bottom: 100px;
+                    left: 100px;
+                }
+                20% {
+                    bottom: 25%;
+                    left: 30%;
+                    transform: scale(3.0);
+                }
+                40% {
+                    bottom: 40%;
+                    left: 50%;
+                }
+                80% {
+                    bottom: 80%;
+                    left: 75%;
+                    transform: scale(2.5);
+                }
+                100% {
+                    bottom: 100%;
+                    left: 100%;
+                }
+            }
+            @keyframes blueball {
+                0% {
+                    bottom: 100px;
+                    right: 100px;
+                }
+                20% {
+                    bottom: 25%;
+                    right: 30%;
+                    transform: scale(1.5);
+                }
+                40% {
+                    bottom: 40%;
+                    right: 50%;
+                }
+                80% {
+                    bottom: 80%;
+                    right: 75%;
+                    transform: scale(3.5);
+                }
+                100% {
+                    bottom: 100%;
+                    right: 100%;
+                }
+            }
+            @keyframes orangeball {
+                0% {
+                    top: 50%;
+                    left: 50%:
+                }
+                50% {
+                    transform: scale(10);
+                }
+                100% {
+                    transform: scale(0);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <div class="ball" id="redball"></div>
+            <div class="ball" id="greenball"></div>
+            <div class="ball" id="purpleball"></div>
+            <div class="ball" id="blueball"></div>
+            <div class="ball" id="orangeball"></div>
+        </main>
+    </body>
+</html>

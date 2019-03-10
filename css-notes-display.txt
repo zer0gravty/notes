@@ -1,0 +1,102 @@
+YouTube: Wes Bos
+
+position: relative absolute fixed? float
+display: flex grid
+
+--FLEX--
+
+http://www.flexboxfroggy.com
+
+display: flex
+flex-direction: row (default), column, row-reverse, column-reverse
+justify-content: center, flex-start (default), flex-end, space-between, space-around
+  --deals with the main axis of the content, i.e. row would be horizontal axis
+align-items: flex-start, flex-end, center, stretch (default), baseline
+  --deals with the secondary axis of the content, i.e. row would be vertical axis
+flex-wrap: nowrap (default), wrap, wrap-reverse
+  --will adjust items rather than shoving them into one row/column
+flex-flow: <flex-direction> <flex-wrap>
+  --combo of flex-direction and flex-wrap
+//for the items in the containter themselves, and not the container as a whole
+flex-shrink: <multiple of how much an item will shrink when items are bigger than container>
+flex-grow: <multiple of how much an item will grow when the container for the items gets bigger>
+flex-basis: xxx px,em,% auto
+  --sets an initial size for an item before shrink/grow kick in
+flex: <flex-grow> <flex-shrink> <flex-basis>
+  --shorthand for the previous three
+order: <integer>
+  --can change precedence order despite location in html
+
+align-self: flex-start, flex-end, center, stretch, baseline
+  --align an item individual; (flex doesn't support float, clear, vertical-align)
+align-content: flex-start flex-end center space-between space-around stretch
+  --aligns the spacing of the lines, not the items in the container
+  
+--GRID--
+
+http://cssgridgarden.com
+
+display: grid
+---for the container itself
+grid-template-rows: xx xx xx xx ...
+  --can use px, em, %, fr (fractions of space/remaining space), auto
+  --can use "repeat(<reps>, <size>)" function
+grid-template-columns: xx xx xx xx ...
+  --can use  auto (column will be as wide as its content), px, em, %, fr (fractions of space/remaining space)
+  --can use "repeat(<reps>, <size>)" function
+grid-template: <grid-template-rows> / <grid-template-columns>
+  --combines grid-template-rows and grid-template-columns
+grid-template-areas:
+  "somename somename somename"
+  "somename somename somename"
+  ". somename somename";
+    --use a period ot indicate an empty cell
+    --enables use of custom names
+grid-row-gap: <size>
+grid-column-gap: <size>
+grid-gap: <size> <size>
+  --shorthand for both grid-row-gap and grid-row-column
+  --if only one value, it will apply to both the rows and columns
+justify-items: start center end stretch (default)
+  --will justify ALL the content in the cells for that container
+align-items: start center end stretch (default)
+  --will align ALL the content in the cells for that container
+
+---for the grid items in the container
+grid-column-start: (OPTIONAL: span <integer>) <integer>
+  --vertical line as to where to start the grid (x-axis from the left)
+  --when used by itself, spans only one columns
+  --negative values go right to left
+  --"span" can be used, but is relative to the start position (i.e. if you start on the right of the grid)
+grid-column-end: (OPTIONAL: span <integer>) <integer>
+  --use with grid-column-start, will span until specified x-axis
+  --negative values go right to left
+  --"span" tells how many columns to cover, if used instead of specify the grid axis
+grid-column: <integer> / <integer>
+  --combines grid-column-start and grid-column-end
+  --can also use "span"
+grid-row-start: <integer>
+  --horizontal line number where to start the row
+grid-row-end: <integer>
+  --like grid-column-start, but along the y-axis
+grid-row: <integer> / <integer>
+  --shorthand for grid-row-start and grid-row-end
+grid-area: <integer> / <integer> / <integer> / <integer>
+  --shorthand for grid-row-start / grid-column-start / grid-row-end / grid-column-end
+grid-area: footer
+  --shorthand for grid-row-start grid-column-start grid-row-end grid-column-end
+  --can also use in the class name to specify where you want that item to go when using grid-template-areas 
+order: <integer>
+  --specifies precedence of a grid item over another item (like z-index)
+
+justify-self: start center end stretch (default)
+  --horizontally justifies the content of the cell in the grid; default is to stretch entire cell
+align-self: start center end stretch (default)
+  --vertically aligns the content of the cell in the grid; default is to stretch;
+
+
+--can use minmax() function to specify a minimum and maximum width/height of a column/row pending size of viewport
+---i.e. grid-template-columns: repeat(3, minmax(90px, 1fr))
+---good for responsive web design
+---you can use "auto-fill" with repeat, and instead of a number, it will automatically fill the container when it resizes.
+---you can use "auto-fit" like auto-fill, but it will stretch the items to fit the row

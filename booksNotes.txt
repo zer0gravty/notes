@@ -1,0 +1,42 @@
+Automate the Boring Stuff With Python - page 216, 238+, 275, 404
+--other books freely available http://www.inventwithpython.com/
+--#! python
+--batch file:    
+    @py.exe C:\path\to\pythonfile.py %*
+    @pause
+--online regex tester: http://regexpal.com/
+--http://www.regular-expressions.info
+--http://www.joelaonsoftware.com/articles/Unicode.html 
+--http://nedbatchelder.com/text/unipain.html 
+--Requests module: http://requests.readthedocs.org/
+Practical SQL - page 119
+Cracking Codes with Python - page 252
+Web Scraping with Python - page 59
+Flask - page 66
+Test Driven Development with Python - page 77
+----> video accompany: http://shop.oreilly.com/product/110000781.do?cmp=yt-prog-books-videos-product-promo_test_driven_development
+--> DjangoGirls: https://tutorial.djangogirls.org/en/
+--> Official Django tutorial: https://docs.djangoproject.com/en/1.11/intro/tutorial01/
+----> Django available as pip package
+--> PythonAnywhere: https://www.pythonanywhere.com/
+--> Geckodriver: https://github.com/mozilla/geckodriver/releases (for Firefox)
+CSS Cookbook -
+--> HTML validator: http://dowebsitesneedtolookexactlythesameineverybrowser.com/
+--> watching webpage with screenreader: http://dowebsitesneedtolookexactlythesameineverybrowser.com/
+--> http://www.videolan.org/ for information on the export tools in the VLC software application, which you can use to convert common video files to OGG format (supported by Firefox and Opera)
+Linux Basics for Hackers: Finished (1 out of 5)
+--> https://www.hackers-arise.com
+--> Windos tools:
+----> Cain and Abel; Wikto;
+----> Kali NetHunter for mobile devices
+
+CompTIA Linux+ - page 41
+register on this site to access study materials: http://sybextestbanks.wiley.com
+
+
+Functional Python Programming -- 51
+
+Bash Bunny - Windows 10 PW Hack
+github.com/vanhauser-thc/thc-hydra
+--limited to smbv1
+-- Jackelope: Catatonic Prime

@@ -1,0 +1,61 @@
+--Info searching--
+EDGAR
+Dun and Bradstreet - financial information?
+
+Google Hacking
+Google Advanced Search
+Johnny Long - GHDB
+
+Pipl search engine - search for info on a person
+Person databases: Anywho; Spokeo; zabasearch
+Censusfinder.com
+Vitalrec.com
+Webhose.io
+portia -> creates a spider
+Raventools.com
+
+emailgenerator.io -> generate a bunch of emails (web app);
+Sender Policy Framework (SMTP Protocol - prevents forgery of email)
+
+httrack/website copier - Copy a website to a local directory
+
+--Website monitoring--
+Pingdom/updown.io - Web monitoring
+github.com/sanathp/statusok
+Monitority.com
+Montastic
+Similarweb
+Quantcast
+
+Mxtoolbox - how to get Email headers
+--read headers from the bottom up
+
+OSINT tool:
+--Maltego - gathers info by standard techniques
+--Shodan - what devices are connected to the internet; who's using, etc.
+--Metagoofil
+--FOCA
+--theHarvester
+
+--DNS--
+port 53/Application layer/genearlly uses UDP but can use TCP(for zone transfer)
+
+Chris Sanders - book on Wireshark
+Domain Name Generators:
+--Domain Name Analyzer; tool from brainstorm
+to help generate domain names. Checks availability.
+Use with a subdomain generator to spoof
+
+--ICMP-- Network layer
+Type 4 - possible buffer overflow in router?
+
+Network-tools.com - web app similar to ping/tracert/pathping(windows)
+pathanalyzer.com - graphical trace route (will need to modify firewall)
+visualware.com -> visualroute
+What is the path something is taking?
+
+nslookup:
+nslookup <domain>
+dig
+
+Waybackmachine - internet archive

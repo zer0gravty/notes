@@ -1,0 +1,46 @@
+----LIL Game Dev----
+bfxr - sound effects software
+audacity - audio program and sound files
+hio - indie game store
+
+ -- ludum dare
+
+aseprite - sprite program
+unity5 2d essential trainingN course
+
+
+
+----OReilly Learning CEH----
+Attack Vectors:
+-MITRE: attack.mitre.org
+--Technical info about the techniques and threat actors and how they are used
+PenTest Frameworks:
+-PTES: Penetrationg testing standard/framework -> http://www.pentest-standard.org
+-Penetration Testing Framework: http://www.vulnerabilityassessment.co.uk/Penetration%20Test.html
+-OWASP: Web app pen framework -> https://www.owasp.org/index.php/OWASP_Testing_Project
+-NIST 800-115: http://nvlpubls.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-115.pdf
+-OSSTMM: http://www.isecom.org/research
+-0CEH exam requires EH Council methodology
+-Information Systems Security Assessment Framework (ISSAF): https://sourceforge.net/projects/isstf/
+-PCI DSS Requirement: https://www.pcisecuritystandards.org/pdfs/infosupp_11_3_penetration_testing.pdf
+
+heartofhacking.org ?
+OWASP Cheat Sheet for Authentication
+
+Change session Id to generic as to not disclose framework of application
+128 bits(16 bytes) minimum length
+
+NIST: 500:292 - Cloud Architecture Design
+
+https://theartofhacking.org/github
+- Docker related resources
+
+- Mini Kube -> starting with Kubernetes
+- Katacoda
+
+Linux security guide: https://linux-audit.com/linux-security-guide-extended-version/
+Github resource: https://github.com/The-Art-of-Hacking/art-of-hacking/tree/master/vulnerable_servers et al
+https://dojo.mavensecurity.com
+Common Vulnerability Scoring System (created by FIRST): https://first.org/cvss
+--- ranking the severity of a vulnerability (https://www.first.org/cvss)
+OpenAPI specs: https://github.com/OAI/OpenAPI-Specification
